@@ -6,8 +6,12 @@ name: TechTrends - Package with Docker
 on:
   push:
     branches: [main]
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [main]
+    tags:
+      - "v*.*.*"
 
 ## List the steps to be executed by the workflow
 jobs:
@@ -60,7 +64,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: imthiyagu/techtrends
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
           tags: |
             type=ref,event=branch
             type=semver,pattern={{major}}.{{minor}}
