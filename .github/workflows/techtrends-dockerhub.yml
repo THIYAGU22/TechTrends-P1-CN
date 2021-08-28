@@ -66,8 +66,10 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends
           tags: |
-            type=semver,pattern={{ raw }}
-            type=semver,pattern={{ raw }},value=v1.0.0
+            # minimal
+            type=semver,pattern={{version}}
+            # use custom value instead of git tag
+            type=semver,pattern={{version}},value=v1.0.0
 
       - name: Build and push
         uses: docker/build-push-action@v2
