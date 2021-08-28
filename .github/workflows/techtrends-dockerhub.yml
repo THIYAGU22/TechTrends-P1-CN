@@ -66,9 +66,7 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends
           tags: |
-            # minimal
             type=semver,pattern={{version}}
-            # use custom value instead of git tag
             type=semver,pattern={{version}},value=v1.0.0
 
       - name: Build and push
