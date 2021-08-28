@@ -66,7 +66,6 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
           tags: |
-            type=ref,event=branch
             type=semver,pattern={{major}}.{{minor}}
 
       - name: Build and push
