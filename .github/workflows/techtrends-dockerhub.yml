@@ -5,9 +5,9 @@ name: TechTrends - Package with Docker
 # events but only for the master branchon:
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 ## List the steps to be executed by the workflow
 jobs:
