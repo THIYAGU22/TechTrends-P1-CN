@@ -66,10 +66,8 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends
           tags: |
-            # minimal
-            type=semver,pattern={{raw}}
-            # use custom value instead of git tag
-            type=semver,pattern={{raw}},value=v1.0.0
+            type=semver,pattern={{ raw }}
+            type=semver,pattern={{ raw }},value=v1.0.0
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -78,7 +76,9 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+            ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cach
