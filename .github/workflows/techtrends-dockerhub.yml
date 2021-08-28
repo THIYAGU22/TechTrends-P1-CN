@@ -64,7 +64,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends
           tags: |
             # minimal
             type=semver,pattern={{raw}}
