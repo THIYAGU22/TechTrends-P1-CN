@@ -1,11 +1,26 @@
-## Docker commands used to build the application 
-# TODO: insert the docker build command
+## Docker commands used to build the application
+docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs <container_name>
+
+docker exec -it <container_name> /bin/sh
+> ls
+> cat app.log
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:51:59] "GET /metrics HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:03] "GET / HTTP/1.1" 200 -
+ERROR:app:Post id : 12 missing
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:08] "GET /12 HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:16] "GET /create HTTP/1.1" 200 -
+INFO:app:New Post : 7 created
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:22] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:22] "GET / HTTP/1.1" 200 -
+INFO:app:Status request successfull : {'post_count': 7, 'db_connection_count': 4}
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:26] "GET /metrics HTTP/1.1" 200 -
+INFO:app:About Us Page retrieved
+INFO:werkzeug:172.17.0.1 - - [28/Aug/2021 10:52:34] "GET /about HTTP/1.1" 200 -
