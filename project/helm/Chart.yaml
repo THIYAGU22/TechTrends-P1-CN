@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends
+description: Package and deploying TechTrends to Kubernetes using a CI/CD pipeline.
+keywords:
+  - techtrends
+version: 1.0.0
+maintainers:
+  - name: Thiyagarjan
+    email: thiyagarajanravi22@gmail.com
