@@ -9,5 +9,6 @@ FILE_FOUND = "DB PRESENT"
 APPLICATION_CONTENT_TYPE = "application/json"
 
 DB_CONNECTION_STRING = 'file:techtrends.db?mode=rw'
+DB_NAME = 'techtrends.db'
 POSTS_COUNT = 0
 DB_CONNECTION_COUNT = 0

@@ -1,9 +1,8 @@
+import os
 import sqlite3
+import logging
 
 from flask import Flask, json, render_template, request, url_for, redirect, flash
-import logging
-from sqlite3 import Error
-
 from constants import *
 
 app = Flask(__name__)
@@ -12,13 +11,17 @@ app = Flask(__name__)
 # This function connects to database with the name `database.db`
 def get_db_connection():
     global DB_CONNECTION_COUNT
-    try:
-        connection = sqlite3.connect(DB_CONNECTION_STRING,uri=True)
+    ## Works only Python >= 3.4
+    ## connection = sqlite3.connect(DB_CONNECTION_STRING,uri=True)
+
+    ## Check if file exists manually (py 2.7)
+    if os.path.isfile(DB_NAME):
+        connection = sqlite3.connect(DB_NAME)
         connection.row_factory = sqlite3.Row
         DB_CONNECTION_COUNT += 1
         return connection
-    except Error:
-        app.logger.critical('DB MISSING : check DB %s exists', DB_CONNECTION_STRING)
+    else:
+        app.logger.critical('DB MISSING : check DB %s exists', DB_NAME)
         return None
 
 # Function to get a post using its ID
