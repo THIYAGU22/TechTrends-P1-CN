@@ -13,7 +13,7 @@ app = Flask(__name__)
 def get_db_connection():
     global DB_CONNECTION_COUNT
     try:
-        connection = sqlite3.connect(DB_CONNECTION_STRING)
+        connection = sqlite3.connect(DB_CONNECTION_STRING,uri=True)
         connection.row_factory = sqlite3.Row
         DB_CONNECTION_COUNT += 1
         return connection
