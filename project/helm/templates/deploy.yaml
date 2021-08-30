@@ -39,4 +39,4 @@ spec:
 {{ toYaml .Values.livenessProbe | indent 12}}
 
           resources:
-{{ toYaml .Values.resources | indent 12}}
+{{ toYaml .Values.resources | indent 11}}
